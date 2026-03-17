@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TaskFlow | Fullstack Task Manager</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="shell">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">Fullstack Task Manager</p>
+          <h1>TaskFlow</h1>
+          <p class="subtitle">Plan tasks, track progress, and manage your work like a calm chaos wizard.</p>
+        </div>
+        <div id="userPanel" class="user-panel hidden">
+          <span id="welcomeUser"></span>
+          <button id="logoutBtn" class="ghost-btn">Log out</button>
+        </div>
+      </header>
+
+      <main class="grid">
+        <section class="card auth-card" id="authCard">
+          <div class="tabs">
+            <button class="tab active" data-tab="login">Login</button>
+            <button class="tab" data-tab="register">Register</button>
+          </div>
+
+          <form id="loginForm" class="auth-form active">
+            <h2>Welcome back</h2>
+            <label>Email
+              <input type="email" name="email" required />
+            </label>
+            <label>Password
+              <input type="password" name="password" required />
+            </label>
+            <button type="submit">Login</button>
+          </form>
+
+          <form id="registerForm" class="auth-form">
+            <h2>Create account</h2>
+            <label>Name
+              <input type="text" name="name" required />
+            </label>
+            <label>Email
+              <input type="email" name="email" required />
+            </label>
+            <label>Password
+              <input type="password" name="password" minlength="6" required />
+            </label>
+            <button type="submit">Register</button>
+          </form>
+
+          <p id="authMessage" class="message"></p>
+        </section>
+
+        <section class="card app-card hidden" id="appCard">
+          <div class="toolbar">
+            <div>
+              <h2>Your tasks</h2>
+              <p class="muted">Create, update, filter, and delete tasks.</p>
+            </div>
+            <button id="newTaskBtn">+ New task</button>
+          </div>
+
+          <div class="filters">
+            <input id="searchInput" type="search" placeholder="Search tasks..." />
+            <select id="statusFilter">
+              <option value="all">All status</option>
+              <option value="todo">To do</option>
+              <option value="in_progress">In progress</option>
+              <option value="done">Done</option>
+            </select>
+            <select id="priorityFilter">
+              <option value="all">All priority</option>
+              <option value="high">High</option>
+              <option value="medium">Medium</option>
+              <option value="low">Low</option>
+            </select>
+          </div>
+
+          <div id="stats" class="stats"></div>
+          <div id="taskList" class="task-list"></div>
+          <p id="taskMessage" class="message"></p>
+        </section>
+      </main>
+    </div>
+
+    <dialog id="taskModal">
+      <form id="taskForm" method="dialog">
+        <div class="modal-header">
+          <h3 id="taskModalTitle">New task</h3>
+          <button type="button" class="icon-btn" id="closeModalBtn">✕</button>
+        </div>
+        <input type="hidden" name="id" />
+        <label>Title
+          <input type="text" name="title" required />
+        </label>
+        <label>Description
+          <textarea name="description" rows="4" placeholder="What needs to be done?"></textarea>
+        </label>
+        <div class="form-row">
+          <label>Status
+            <select name="status">
+              <option value="todo">To do</option>
+              <option value="in_progress">In progress</option>
+              <option value="done">Done</option>
+            </select>
+          </label>
+          <label>Priority
+            <select name="priority">
+              <option value="high">High</option>
+              <option value="medium" selected>Medium</option>
+              <option value="low">Low</option>
+            </select>
+          </label>
+        </div>
+        <label>Due date
+          <input type="date" name="due_date" />
+        </label>
+        <div class="modal-actions">
+          <button type="button" class="ghost-btn" id="cancelModalBtn">Cancel</button>
+          <button type="submit">Save task</button>
+        </div>
+      </form>
+    </dialog>
+
+    <script src="app.js"></script>
+  </body>
+</html>

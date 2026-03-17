@@ -1,0 +1,218 @@
+:root {
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: #e8eef6;
+  background: #0b1220;
+  line-height: 1.5;
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; background: radial-gradient(circle at top, #172036, #0b1220 55%); }
+button, input, textarea, select { font: inherit; }
+button { cursor: pointer; }
+
+.shell {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 2rem 1rem 3rem;
+}
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: start;
+  margin-bottom: 1.5rem;
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.8rem;
+  color: #8fb4ff;
+  margin-bottom: 0.4rem;
+}
+
+h1, h2, h3, p { margin-top: 0; }
+h1 { font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 0.25rem; }
+.subtitle { max-width: 52ch; color: #b9c6da; }
+
+.grid {
+  display: grid;
+  grid-template-columns: 340px 1fr;
+  gap: 1rem;
+}
+
+.card {
+  background: rgba(14, 23, 39, 0.88);
+  border: 1px solid rgba(143, 180, 255, 0.15);
+  border-radius: 24px;
+  padding: 1.25rem;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(10px);
+}
+
+.tabs {
+  display: flex;
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 999px;
+  padding: 0.25rem;
+  margin-bottom: 1rem;
+}
+
+.tab, .ghost-btn, #newTaskBtn, form button[type="submit"] {
+  border: none;
+  border-radius: 999px;
+  padding: 0.75rem 1rem;
+}
+
+.tab {
+  flex: 1;
+  background: transparent;
+  color: #c8d6f0;
+}
+
+.tab.active, #newTaskBtn, form button[type="submit"] {
+  background: linear-gradient(135deg, #6da8ff, #7b61ff);
+  color: white;
+}
+
+.auth-form {
+  display: none;
+}
+
+.auth-form.active {
+  display: block;
+}
+
+.hidden {
+  display: none !important;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.9rem;
+  font-weight: 600;
+  color: #dfe8f8;
+}
+
+input, textarea, select {
+  width: 100%;
+  margin-top: 0.35rem;
+  border-radius: 14px;
+  border: 1px solid rgba(143, 180, 255, 0.2);
+  background: rgba(255, 255, 255, 0.04);
+  color: #f4f8ff;
+  padding: 0.8rem 0.9rem;
+}
+
+input::placeholder, textarea::placeholder { color: #91a1bd; }
+
+.message {
+  min-height: 1.5rem;
+  color: #ffd166;
+  margin-top: 0.75rem;
+}
+
+.toolbar, .filters, .user-panel, .modal-header, .modal-actions, .form-row {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.toolbar, .modal-header, .modal-actions {
+  justify-content: space-between;
+  align-items: center;
+}
+
+.filters {
+  margin: 1rem 0;
+  flex-wrap: wrap;
+}
+
+.filters > * { flex: 1; min-width: 150px; }
+.user-panel { align-items: center; }
+.muted { color: #9dafcc; }
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.stat {
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 18px;
+  padding: 0.9rem;
+}
+
+.stat strong {
+  display: block;
+  font-size: 1.4rem;
+}
+
+.task-list {
+  display: grid;
+  gap: 0.9rem;
+}
+
+.task-item {
+  border-radius: 20px;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(143, 180, 255, 0.12);
+}
+
+.task-top, .task-actions, .tag-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.badge {
+  padding: 0.3rem 0.7rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  background: rgba(255, 255, 255, 0.09);
+}
+
+.badge.high { background: rgba(255, 99, 132, 0.18); }
+.badge.medium { background: rgba(255, 209, 102, 0.18); }
+.badge.low { background: rgba(6, 214, 160, 0.18); }
+
+.badge.todo { background: rgba(143, 180, 255, 0.18); }
+.badge.in_progress { background: rgba(123, 97, 255, 0.18); }
+.badge.done { background: rgba(0, 200, 150, 0.18); }
+
+.small-btn, .icon-btn {
+  border: none;
+  border-radius: 12px;
+  padding: 0.55rem 0.75rem;
+  background: rgba(255, 255, 255, 0.08);
+  color: #edf3ff;
+}
+
+.small-btn.danger { background: rgba(255, 99, 132, 0.18); }
+
+dialog {
+  border: none;
+  border-radius: 24px;
+  width: min(94vw, 540px);
+  background: #101a2d;
+  color: #f5f8ff;
+  padding: 0;
+}
+
+dialog::backdrop { background: rgba(5, 10, 19, 0.68); }
+
+dialog form { padding: 1.25rem; }
+
+@media (max-width: 900px) {
+  .grid { grid-template-columns: 1fr; }
+  .stats { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 600px) {
+  .topbar { flex-direction: column; }
+  .stats { grid-template-columns: 1fr; }
+}
