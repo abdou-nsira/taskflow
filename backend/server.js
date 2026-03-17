@@ -211,7 +211,6 @@ app.delete('/api/tasks/:id', requireAuth, async (req, res) => {
   res.status(204).send();
 });
 
-const PORT = process.env.PORT || 4000;
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
